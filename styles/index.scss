@@ -1,0 +1,263 @@
+$color3: #D6EBF8;
+$color1: #90C133;
+$color2: #103353;
+
+$neutral1:white;
+$neutral2:#ECEFF2;
+
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+$small-breakpoint: em(1024) !default;
+
+@mixin respond-to($media) {
+  @if $media == non-mobile {
+    @media only screen and (min-width: $small-breakpoint) { @content; }
+  }
+}
+
+@font-face {
+    font-family: 'UniversBlack';
+   	src:  url('../fonts/UniversLTStd-Black.otf');
+}
+
+@font-face {
+    font-family: 'UniversLight';
+   	src:  url('../fonts/UniversLTStd-Light.otf');
+}
+
+@mixin center {
+	top: 50%;
+	left:50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+@mixin center-vertical {
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+@mixin center-horizontal {
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0 0 0 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans';
+}
+
+input[type=range] {
+	@include center-horizontal;
+	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+	background: transparent; /* Otherwise white in Chrome */
+	width: 90%;
+	position: relative;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	top: 50%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+@mixin thumb {
+	border-radius: 5px;
+	border: 1px solid $color2;
+	height: 30px;
+	width: 30px;
+	background-color: $color3;
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  @include thumb;
+  -webkit-appearance: none;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  @include thumb;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+	@include thumb;
+}
+
+@mixin slider {
+	width: 80%;
+	position: relative;
+	height: 5px;
+	background-color: $color2;
+	cursor: pointer;
+	border-radius: 5px;
+	top: -30px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	@include slider;
+}
+
+input[type=range]::-moz-range-track {
+	@include slider;
+}
+
+input[type=range]::-ms-track {
+	@include slider;
+}
+
+input[type=range]::-ms-fill-lower {
+	@include slider;
+}
+
+input[type=range]::-ms-fill-upper {
+	@include slider;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+.form {
+	// @include center-vertical;
+	top: 20%;
+	position: absolute;
+	width: 100%;
+	height: 60%;
+	&__input {
+		height: calc(100% / 4);
+		width: 100%;
+		position: relative;
+		&:after {
+			@include center-horizontal;
+			content: "";
+			position: absolute;
+			display: inline-block;
+			width: 90%;
+			height: 2px;
+			background-color: black;
+			top: 0px;
+			opacity: 0.1;
+
+		}
+	}
+	&__value {
+		display: inline-block;
+		color: black;
+		position: absolute;
+		top: 10px;
+		margin-right: 5%;
+		font-size: 1.8em;
+		text-align: center;
+		right: 0;
+		font-family: 'Oswald', sans-serif;
+	}
+	&__label {
+		font-family: 'Oswald', sans-serif;
+		font-weight: 200;
+		display: inline-block;
+		position: relative;
+		font-size: 1.5em;
+		opacity: 0.7;
+		top: 10px;
+		margin: 0 5% 0 5%;
+	}
+}
+
+.repayment {
+	color: white;
+	position: absolute;
+	height: 17%;
+	width: 100%;
+	bottom: 0;
+	background-color: $color1;
+	span {
+		left: 5%;
+		font-family: 'Oswald', sans-serif;
+		font-weight: 200;
+		display: inline-block;
+		position: relative;
+		font-size: 2em;
+		text-align: center;
+		opacity: 0.6;
+		&#value {
+			font-weight: 400;
+			opacity: 1;
+			font-size: 2.5em;
+			line-height: 40px;
+		}
+	}
+	&__frequency {
+		position: relative;
+		width: 180px;
+		color: white;
+		font-size: 2.3em;
+		font-family: 'Oswald', sans-serif;
+		margin: 0 0 0 20px;
+		background-image: url('../imgs/down-arrow.png');
+		background-size: 12%;
+		background-repeat: no-repeat;
+		background-position: 95% 50%;
+		background-color: rgba(0,0,0,0.1);
+		border: none;
+	}
+}
+
+.title {
+	height: 20%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	span {
+		left: 5%;
+		color: $color2;
+		font-size: 2.5em;
+		top: 50px;
+		position: absolute;
+		display: inline-block;
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+		font-family: 'Oswald', sans-serif;
+	}
+	&__logo {
+		background-image: url('../imgs/omb-logo.jpg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		position: relative;
+		left: 5%;
+		margin: 0 0 0 0;
+		height: 50px;
+		width: 100px;
+	}
+}
+
+
+
