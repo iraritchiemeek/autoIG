@@ -169,6 +169,9 @@ input[type=range]::-ms-fill-upper {
   width: 100%;
   bottom: 0;
   background-color: #90C133; }
+  @media only screen and (max-height: 450px) {
+    .repayment br {
+      display: none; } }
   .repayment span {
     left: 5%;
     font-family: 'Oswald', sans-serif;
@@ -212,6 +215,18 @@ input[type=range]::-ms-fill-upper {
     padding: 0 0 0 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 400; }
+    @media only screen and (max-height: 450px) {
+      .title h1 {
+        font-size: 1.8em;
+        top: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: absolute;
+        left: calc(5% + 50px);
+        margin: 0 0 0 10px; } }
+    @media only screen and (max-width: 330px) {
+      .title h1 {
+        font-size: 1.8em; } }
   .title__logo {
     background-image: url("../imgs/omb-logo.jpg");
     background-size: contain;
@@ -220,7 +235,7 @@ input[type=range]::-ms-fill-upper {
     left: 5%;
     margin: 0 0 0 0;
     height: 50px;
-    width: 100px; }
+    width: 50px; }
   .title__backlink {
     position: absolute;
     right: 5%;
@@ -232,5 +247,14 @@ input[type=range]::-ms-fill-upper {
     text-align: right; }
     .title__backlink a {
       text-decoration: none; }
+    @media only screen and (max-height: 450px) {
+      .title__backlink {
+        font-size: 0.6em;
+        left: calc(5% + 50px);
+        margin: 0 0 0 10px;
+        right: auto;
+        top: 40px; }
+        .title__backlink br {
+          display: none; } }
 
 /*# sourceMappingURL=index.css.map */
