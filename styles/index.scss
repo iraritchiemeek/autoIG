@@ -199,6 +199,7 @@ input[type=range]::-ms-fill-upper {
 	bottom: 0;
 	background-color: $color1;
 	@media only screen and (max-height: 450px) {
+		// padding: 5px 0 0 0;
 		br {
 			display: none;
 		}
@@ -212,7 +213,13 @@ input[type=range]::-ms-fill-upper {
 		font-size: 2em;
 		text-align: center;
 		opacity: 0.6;
+		@media only screen and (max-height: 450px) {
+			font-size: 1.2em;
+		}
 		&#value {
+			@media only screen and (max-height: 450px) {
+				font-size: 1.5em;
+			}
 			font-weight: 400;
 			opacity: 1;
 			font-size: 2.5em;
@@ -221,14 +228,18 @@ input[type=range]::-ms-fill-upper {
 		}
 	}
 	&__frequency {
+		@media only screen and (max-height: 450px) {
+			width: 150px;
+			font-size: 1.5em;
+			height: 30px;
+			line-height: 30px;
+		}
 		position: relative;
-		width: 180px;
+		width: 170px;
 		color: white;
 		font-size: 2.3em;
 		font-family: 'Oswald', sans-serif;
 		left: 5%;
-		// margin: 0 0 0 25px;
-		// background-image: url('../imgs/down-arrow.png');
 		background-size: 12%;
 		background-repeat: no-repeat;
 		background-position: 95% 50%;
@@ -262,8 +273,8 @@ input[type=range]::-ms-fill-upper {
 			left: calc(5% + 50px);
 			margin: 0 0 0 10px;
 		}
-		@media only screen and (max-width: 330px) {
-			font-size: 1.8em;
+		@media only screen and (max-width: 300px) {
+			font-size: 1.4em;
 		}
 	}
 	&__logo {

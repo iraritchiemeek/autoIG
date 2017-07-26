@@ -181,14 +181,20 @@ input[type=range]::-ms-fill-upper {
     font-size: 2em;
     text-align: center;
     opacity: 0.6; }
+    @media only screen and (max-height: 450px) {
+      .repayment span {
+        font-size: 1.2em; } }
     .repayment span#value {
       font-weight: 400;
       opacity: 1;
       font-size: 2.5em;
       line-height: 40px; }
+      @media only screen and (max-height: 450px) {
+        .repayment span#value {
+          font-size: 1.5em; } }
   .repayment__frequency {
     position: relative;
-    width: 180px;
+    width: 170px;
     color: white;
     font-size: 2.3em;
     font-family: 'Oswald', sans-serif;
@@ -198,6 +204,12 @@ input[type=range]::-ms-fill-upper {
     background-position: 95% 50%;
     background-color: rgba(0, 0, 0, 0.1);
     border: none; }
+    @media only screen and (max-height: 450px) {
+      .repayment__frequency {
+        width: 150px;
+        font-size: 1.5em;
+        height: 30px;
+        line-height: 30px; } }
 
 .title {
   height: 20%;
@@ -224,9 +236,9 @@ input[type=range]::-ms-fill-upper {
         position: absolute;
         left: calc(5% + 50px);
         margin: 0 0 0 10px; } }
-    @media only screen and (max-width: 330px) {
+    @media only screen and (max-width: 300px) {
       .title h1 {
-        font-size: 1.8em; } }
+        font-size: 1.4em; } }
   .title__logo {
     background-image: url("../imgs/omb-logo.jpg");
     background-size: contain;
