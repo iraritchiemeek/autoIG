@@ -44,15 +44,13 @@
 				<span ng-show="frequency == 2" class="form__value">Fortnightly</span>
 				<span ng-show="frequency == 3" class="form__value">Monthly</span>
 				<input type="range" min="1" max="3" ng-init="frequency = 2" ng-model="frequency">
-			</div>
+			</div>		
 		</form>
 		<div class="repayment">
 			<span>Repayments of </span>
 			<span ng-show="frequency == 1" id="value">${{calcRepayment(housePrice, (housePrice * deposit/100), loanLength ,interest, 52) | number}}</span>
 			<span ng-show="frequency == 2" id="value">${{calcRepayment(housePrice, (housePrice * deposit/100), loanLength ,interest, 26) | number}}</span>
 			<span ng-show="frequency == 3" id="value">${{calcRepayment(housePrice, (housePrice * deposit/100), loanLength ,interest, 12) | number}}</span>
-			<!-- <select ng-model="freq" class="repayment__frequency" ng-options="option.name for option in options"> -->
-			<!-- </select> -->
 		</div>
 	</div>
 </body>

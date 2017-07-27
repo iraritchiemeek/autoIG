@@ -3,7 +3,6 @@ var mortgageApp = angular.module('mortgageApp', []);
 mortgageApp.controller('mainController', function($scope) {
 
 	$scope.calcRepayment = function (housePrice, deposit, loanLength, interest, term) {
-		console.log(housePrice, deposit, loanLength, interest, term)
 		r = (interest/100)/term;
 	    n = loanLength * term;
 	    p = housePrice - deposit;
@@ -12,22 +11,5 @@ mortgageApp.controller('mainController', function($scope) {
 	    repayment = Math.round(repayment);
 	    return repayment
 	}
-
-	$scope.options = [
-	        {
-	          name: 'weekly',
-	          value: 'weekly'
-	        }, 
-	        {
-	          name: 'fortnightly',
-	          value: 'fortnightly'
-	        }, 
-	        {
-	        	name: 'monthly',
-	        	value: 'monthly'
-	        }
-	    ];
-
-	    $scope.freq = $scope.options[0];
 
 })
